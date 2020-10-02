@@ -59,6 +59,7 @@ typedef struct
  *
  * @return 1 If the data is compressed via LZ4.
  */
+ NVCOMP_API
 int LZ4IsData(const void* const in_ptr, size_t in_bytes);
 
 /**
@@ -68,6 +69,7 @@ int LZ4IsData(const void* const in_ptr, size_t in_bytes);
  *
  * @return 1 if the data is for LZ4.
  */
+NVCOMP_API
 int LZ4IsMetadata(const void* const metadata_ptr);
 
 /**
@@ -82,6 +84,7 @@ int LZ4IsMetadata(const void* const metadata_ptr);
  *
  * @return nvcompSuccess if successful, and an error code otherwise.
  */
+NVCOMP_API
 nvcompError_t nvcompLZ4DecompressGetMetadata(
     const void* in_ptr,
     size_t in_bytes,
@@ -93,6 +96,7 @@ nvcompError_t nvcompLZ4DecompressGetMetadata(
  *
  * @para metadata_ptr The metadata to destroy.
  */
+NVCOMP_API
 void nvcompLZ4DecompressDestroyMetadata(void* metadata_ptr);
 
 /**
@@ -104,6 +108,7 @@ void nvcompLZ4DecompressDestroyMetadata(void* metadata_ptr);
  *
  * @return nvcompSuccess if successful, and an error code otherwise.
  */
+NVCOMP_API
 nvcompError_t
 nvcompLZ4DecompressGetTempSize(const void* metadata_ptr, size_t* temp_bytes);
 
@@ -115,6 +120,7 @@ nvcompLZ4DecompressGetTempSize(const void* metadata_ptr, size_t* temp_bytes);
  *
  * @return nvcompSuccess if successful, and an error code otherwise.
  */
+NVCOMP_API
 nvcompError_t nvcompLZ4DecompressGetOutputSize(
     const void* metadata_ptr, size_t* output_bytes);
 
@@ -132,6 +138,7 @@ nvcompError_t nvcompLZ4DecompressGetOutputSize(
  *
  * @return nvcompSuccess if successful, and an error code otherwise.
  */
+NVCOMP_API
 nvcompError_t nvcompLZ4DecompressAsync(
     const void* const in_ptr,
     const size_t in_bytes,
@@ -154,6 +161,7 @@ nvcompError_t nvcompLZ4DecompressAsync(
  *
  * @return nvcompSuccess if successful, and an error code otherwise.
  */
+NVCOMP_API
 nvcompError_t nvcompLZ4CompressGetTempSize(
     const void* in_ptr,
     size_t in_bytes,
@@ -176,6 +184,7 @@ nvcompError_t nvcompLZ4CompressGetTempSize(
  *
  * @return nvcompSuccess if successful, and an error code otherwise.
  */
+NVCOMP_API
 nvcompError_t nvcompLZ4CompressGetOutputSize(
     const void* in_ptr,
     size_t in_bytes,
@@ -204,6 +213,7 @@ nvcompError_t nvcompLZ4CompressGetOutputSize(
  *
  * @return nvcompSuccess if successful, and an error code otherwise.
  */
+NVCOMP_API
 nvcompError_t nvcompLZ4CompressAsync(
     const void* in_ptr,
     size_t in_bytes,
@@ -234,6 +244,7 @@ nvcompError_t nvcompLZ4CompressAsync(
  *
  * @return nvcompSuccess if successful, and an error code otherwise.
  */
+NVCOMP_API
 nvcompError_t nvcompBatchedLZ4DecompressGetMetadata(
     const void** in_ptr,
     size_t* in_bytes,
@@ -246,6 +257,7 @@ nvcompError_t nvcompBatchedLZ4DecompressGetMetadata(
  *
  * @para metadata_ptr List of metadata to destroy.
  */
+NVCOMP_API
 void nvcompBatchedLZ4DecompressDestroyMetadata(void* metadata_ptr);
 
 /**
@@ -257,6 +269,7 @@ void nvcompBatchedLZ4DecompressDestroyMetadata(void* metadata_ptr);
  *
  * @return nvcompSuccess if successful, and an error code otherwise.
  */
+NVCOMP_API
 nvcompError_t
 nvcompBatchedLZ4DecompressGetTempSize(const void* metadata_ptr, size_t* temp_bytes);
 
@@ -269,6 +282,7 @@ nvcompBatchedLZ4DecompressGetTempSize(const void* metadata_ptr, size_t* temp_byt
  *
  * @return nvcompSuccess if successful, and an error code otherwise.
  */
+NVCOMP_API
 nvcompError_t nvcompBatchedLZ4DecompressGetOutputSize(
     const void* metadata_ptr, size_t batch_size, size_t* output_bytes);
 
@@ -287,6 +301,7 @@ nvcompError_t nvcompBatchedLZ4DecompressGetOutputSize(
  *
  * @return nvcompSuccess if successful, and an error code otherwise.
  */
+NVCOMP_API
 nvcompError_t nvcompBatchedLZ4DecompressAsync(
     const void* const* in_ptr,
     const size_t* in_bytes,
@@ -310,6 +325,7 @@ nvcompError_t nvcompBatchedLZ4DecompressAsync(
  *
  * @return nvcompSuccess if successful, and an error code otherwise.
  */
+NVCOMP_API
 nvcompError_t nvcompBatchedLZ4CompressGetTempSize(
     const void* const* in_ptr,
     const size_t* in_bytes,
@@ -330,6 +346,7 @@ nvcompError_t nvcompBatchedLZ4CompressGetTempSize(
  *
  * @return nvcompSuccess if successful, and an error code otherwise.
  */
+NVCOMP_API
 nvcompError_t nvcompBatchedLZ4CompressGetOutputSize(
     const void* const* in_ptr,
     const size_t* in_bytes,
@@ -357,6 +374,7 @@ nvcompError_t nvcompBatchedLZ4CompressGetOutputSize(
  *
  * @return nvcompSuccess if successful, and an error code otherwise.
  */
+NVCOMP_API
 nvcompError_t nvcompBatchedLZ4CompressAsync(
     const void* const* in_ptr,
     const size_t* in_bytes,

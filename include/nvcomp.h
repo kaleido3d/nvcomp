@@ -43,6 +43,16 @@ extern "C" {
 #define NVCOMP_MINOR_VERSION 0
 #define NVCOMP_PATCH_VERSION 2
 
+#ifdef _MSC_VER
+#ifdef BUILD_LIB
+#define NVCOMP_API __declspec(dllexport)
+#else
+#define NVCOMP_API __declspec(dllimport)
+#endif
+#else
+#define NVCOMP_API  
+#endif
+
 typedef enum nvcompError_t
 {
   nvcompSuccess = 0,
@@ -81,6 +91,7 @@ typedef enum nvcompType_t
  *
  * @return nvcompSuccess if successful, and an error code otherwise.
  */
+NVCOMP_API
 nvcompError_t nvcompDecompressGetMetadata(
     const void* in_ptr,
     size_t in_bytes,
@@ -92,6 +103,7 @@ nvcompError_t nvcompDecompressGetMetadata(
  *
  * @param metadata_ptr The pointer to destroy.
  */
+NVCOMP_API
 void nvcompDecompressDestroyMetadata(void* metadata_ptr);
 
 /**
@@ -104,6 +116,7 @@ void nvcompDecompressDestroyMetadata(void* metadata_ptr);
  *
  * @return nvcompSuccess if successful, and an error code otherwise.
  */
+NVCOMP_API
 nvcompError_t
 nvcompDecompressGetTempSize(const void* metadata_ptr, size_t* temp_bytes);
 
@@ -115,6 +128,7 @@ nvcompDecompressGetTempSize(const void* metadata_ptr, size_t* temp_bytes);
  *
  * @return nvcompSuccess if successful, and an error code otherwise.
  */
+NVCOMP_API
 nvcompError_t
 nvcompDecompressGetOutputSize(const void* metadata_ptr, size_t* output_bytes);
 
@@ -126,6 +140,7 @@ nvcompDecompressGetOutputSize(const void* metadata_ptr, size_t* output_bytes);
  *
  * @return nvcompSuccess if successful, and an error code otherwise.
  */
+NVCOMP_API
 nvcompError_t
 nvcompDecompressGetType(const void* metadata_ptr, nvcompType_t* type);
 
@@ -137,6 +152,7 @@ nvcompDecompressGetType(const void* metadata_ptr, nvcompType_t* type);
  *
  * @return nvcompSuccess if successful, and an error code otherwise.
  */
+NVCOMP_API
 int nvcompDecompressIsTypeSensitive(const void* metadata_ptr);
 
 /**
@@ -153,6 +169,7 @@ int nvcompDecompressIsTypeSensitive(const void* metadata_ptr);
  *
  * @return nvcompSuccess if successful, and an error code otherwise.
  */
+NVCOMP_API
 nvcompError_t nvcompDecompressAsync(
     const void* in_ptr,
     size_t in_bytes,

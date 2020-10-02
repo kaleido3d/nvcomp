@@ -36,7 +36,7 @@
 namespace nvcomp
 {
 
-class BitPackGPU
+class NVCOMP_API BitPackGPU
 {
 public:
   /**

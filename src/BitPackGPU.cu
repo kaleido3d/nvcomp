@@ -344,8 +344,8 @@ __global__ void bitPackKernel(
         // keep only bits we're interested in
         OUTPUT bits = static_cast<OUTPUT>(inBuffer[localIdx]);
         int const offset = static_cast<int>(
-            static_cast<ssize_t>(idx * numBits)
-            - static_cast<ssize_t>(bitStart));
+            static_cast<std::size_t>(idx * numBits)
+            - static_cast<std::size_t>(bitStart));
         assert(std::abs(offset) < sizeof(bits) * 8U);
 
         if (offset > 0) {

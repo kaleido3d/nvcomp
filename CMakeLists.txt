@@ -8,7 +8,7 @@ find_package(CUDA REQUIRED)
 include_directories(include)
 
 set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} -O3")
-set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -O0 -g")
+#set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -O0 -g")
 
 IF(CMAKE_BUILD_TYPE STREQUAL "DEBUG" OR CMAKE_BUILD_TYPE STREQUAL "Debug")
   message("Debug build.")
@@ -67,6 +67,10 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
 file(COPY include/ DESTINATION ${CMAKE_BINARY_DIR}/include)
 
 enable_testing()
+
+if(WIN32)
+  include(external/getopt/getopt.cmake)
+endif()
 
 add_subdirectory(src)
 add_subdirectory(tests)
